@@ -1,5 +1,9 @@
+import { Eth } from "web3-eth";
+
 async function main(): Promise<void> {
-  console.log("poyo");
+  console.log("Eth", Eth);
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  console.log("Eth", require("web3-eth").Eth);
 }
 
 main();

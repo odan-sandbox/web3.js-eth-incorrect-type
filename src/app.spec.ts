@@ -1,7 +1,21 @@
-describe("app", (): void => {
-  describe("add", (): void => {
-    it("should be correct", (): void => {
-      expect(32 + 10).toBe(42);
+import { Eth } from "web3-eth";
+
+describe("import", (): void => {
+  it("is undefined", () => {
+    expect(Eth).toBeUndefined();
+  });
+});
+
+describe("require", () => {
+  describe("without named export", () => {
+    it("is defined", () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      expect(require("web3-eth")).toBeDefined();
+    });
+  });
+  describe("with named export", () => {
+    it("is undefined", () => {
+      expect(require("web3-eth").Eth).toBeUndefined();
     });
   });
 });
